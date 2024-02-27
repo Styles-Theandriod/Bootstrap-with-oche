@@ -22,42 +22,74 @@
       <li>Contact Us</li>
     </ul>
 
-    <input type="range" class="form-range" id="customRange1">
+    <input type="range" class="form-range" id="customRange1" />
 
     <div class="triangle"></div>
 
     <div class="family"></div>
-    
+
+    <div class="family2"></div>
+
+    <h1 class="text">I am a <span class="items"></span></h1>
+
+    <marquee behavior="" direction="">
+      <ul>
+        <li>Bizmarrow</li>
+        <li>Bizmarrow</li>
+        <li>Bizmarrow</li>
+        <li>Bizmarrow</li>
+      </ul>
+    </marquee>
 
     <style>
+      body::-webkit-scrollbar {
+        width: 12px;
+        background-color: #f5f5f5;
+      }
+
+      body::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        background-color: #f5f5f5;
+      }
+
+      body::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #555;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        height: 10px; /* Set the desired height for the scrollbar thumb */
+      }
       .contain {
         /* border-color:red;
         border-style: solid;
         border-width: 10px; */
         border: 2px solid red;
 
-        margin:10px 10px 0 10px;
+        margin: 10px 10px 0 10px;
         /* height: 500px; */
         padding: 50px 0 0 0;
         border-radius: 40px;
-        cursor:ew-resize;
+        cursor: ew-resize;
       }
 
-      ul{
+      ul {
         display: flex;
         gap: 20px;
-        list-style-type:decimal-leading-zero;
-        list-style-position:inside;
-        list-style-image: url('https://picsum.photos/300/300');
-        list-style:circle inside url('https://picsum.photos/300/300');
+        list-style-type: decimal-leading-zero;
+        list-style-position: inside;
+        list-style-image: url("https://picsum.photos/300/300");
+        list-style: circle inside url("https://picsum.photos/300/300");
         list-style: none;
       }
-      input[type="range"]{
+      input[type="range"] {
         cursor: ew-resize !important;
         width: 50%;
       }
 
-      .triangle{
+      .triangle {
         /* background-color: red; */
         background: linear-gradient(red, blue);
         width: 14rem;
@@ -68,12 +100,79 @@
         margin: 0 auto;
       }
 
-      .family{
+      .family {
         background-color: olive;
         max-width: 30%;
         height: 300px;
         margin: 40px;
+        /* visibility: hidden; */
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50px;
+        bottom: 0;
+        /* clip-path: circle(); */
+        border: 2px solid black;
       }
+      
+      .family:hover{
+        animation: circle 0.4s infinite linear;
+
+      }
+
+      @keyframes circle {
+        from {
+          transform: rotate(0deg);
+          border: 3px solid red;
+        }
+        to {
+          transform: rotate(360deg);
+          /* clip-path: circle(); */
+        }
+      }
+
+      .family2 {
+        background-color: olive;
+        max-width: 30%;
+        height: 300px;
+        margin: 40px;
+        display: none;
+      }
+
+      .text{
+        margin-left: 10px;
+      }
+      
+      .items::after{
+        position: absolute;
+        content: ' ';
+        animation: changeText 5s linear infinite;
+        margin-left: 10px;
+      }
+
+      @keyframes changeText {
+        0%{
+          content: ' backend developer';
+          color: red;
+        }
+        
+        50%{
+          content: ' graphics designer';
+          color: green;
+        }
+
+        100%{
+          content: 'andriod developer';
+          color: orangered;
+          margin-left: 1000px;
+        }
+
+      }
+      
+      
+      
+
+
     </style>
   </body>
 </html>
